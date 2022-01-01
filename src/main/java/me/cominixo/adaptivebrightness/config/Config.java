@@ -4,12 +4,9 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
-import org.apache.logging.log4j.LogManager;
 
 import java.io.*;
-import java.util.logging.Logger;
 
 public class Config {
 
