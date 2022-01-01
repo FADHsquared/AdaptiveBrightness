@@ -24,7 +24,7 @@ public class PlayerEntityMixin {
             MinecraftClient client = MinecraftClient.getInstance();
 
             int totalLight = client.world.getChunkManager().getLightingProvider().getLight(((Entity)(Object)this).getBlockPos(), 0);
-            double gammaTarget = clamp(Math.abs(totalLight-15.0)/15.0, Config.min_gamma, Config.max_gamma);
+            double gammaTarget = Math.abs(totalLight-15.0)/15.0 * (Config.max_gamma - Config.min_gamma) + Config.min_gamma;
 
             if (client.options.gamma < gammaTarget) {
                 client.options.gamma = Math.min(client.options.gamma + 0.05, gammaTarget);
@@ -34,9 +34,4 @@ public class PlayerEntityMixin {
 
         }
     }
-
-    private double clamp(double val, double min, double max) {
-        return Math.max(min, Math.min(max, val));
-    }
-
 }
