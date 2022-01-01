@@ -1,5 +1,9 @@
 # AdaptiveBrightness
 
+This fork just allows brightness adjustments of above 100%. Original readme contents below.
+
+---
+
 This mod dynamically changes the brightness level of Minecraft based on the light level of the block you're standing on.
 For configuration editing, you'll need ModMenu.
 
