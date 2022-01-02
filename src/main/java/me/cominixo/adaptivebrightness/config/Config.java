@@ -94,8 +94,8 @@ public class Config {
                 max_gamma = Double.parseDouble(line.split("max ")[1]);
             } else if (line.startsWith("min ")) {
                 min_gamma = Double.parseDouble(line.split("min ")[1]);
-            } else if (line.startsWith("disable ")) {
-                disabled = Boolean.parseBoolean(line.split("disable ")[1]);
+            } else if (line.startsWith("disabled ")) {
+                disabled = Boolean.parseBoolean(line.split("disabled ")[1]);
             } else if (line.startsWith("maxlight ")) {
                 max_lightlevel = Integer.parseInt(line.split("maxlight ")[1]);
             } else if (line.startsWith("minlight ")) {
