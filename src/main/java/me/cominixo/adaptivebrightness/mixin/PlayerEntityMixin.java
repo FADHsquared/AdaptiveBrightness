@@ -24,7 +24,9 @@ public class PlayerEntityMixin {
             MinecraftClient client = MinecraftClient.getInstance();
 
             int totalLight = client.world.getChunkManager().getLightingProvider().getLight(((Entity)(Object)this).getBlockPos(), 0);
-            double gammaTarget = Math.abs(totalLight-15.0)/15.0 * (Config.max_gamma - Config.min_gamma) + Config.min_gamma;
+            int lightRange = Config.max_lightlevel - Config.min_lightlevel;
+            // EXAMPLE: Lightlevel clamped between 5 to 10. 5 to 10 turns into 0 to 5, subtract by range (that's 5) and divide by range.
+            double gammaTarget = Math.abs(clamp(totalLight, Config.min_lightlevel, Config.max_lightlevel) - Config.min_lightlevel - lightRange)/lightRange * (Config.max_gamma - Config.min_gamma) + Config.min_gamma;
 
             if (client.options.gamma < gammaTarget) {
                 client.options.gamma = Math.min(client.options.gamma + 0.05, gammaTarget);
@@ -33,5 +35,9 @@ public class PlayerEntityMixin {
             }
 
         }
+    }
+
+    private double clamp(int val, int min, int max) {
+        return Math.max(min, Math.min(max, val));
     }
 }
