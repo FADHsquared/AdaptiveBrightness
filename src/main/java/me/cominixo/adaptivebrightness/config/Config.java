@@ -13,6 +13,8 @@ public class Config {
     public static double max_gamma = 1.0f;
     public static double min_gamma = 0.0f;
     public static boolean disabled = false;
+    public static int max_lightlevel = 15;
+    public static int min_lightlevel = 0;
 
     public static Screen init(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
@@ -43,6 +45,18 @@ public class Config {
                 .setSaveConsumer(newValue -> disabled = newValue)
                 .build());
 
+        general.addEntry(entryBuilder.startIntSlider(new TranslatableText("option.adaptivebrightness.max_lightlevel"), max_lightlevel, 0, 15)
+                .setDefaultValue(15)
+                .setTooltip(new TranslatableText("option.adaptivebrightness.max_lightlevel.tooltip"))
+                .setSaveConsumer(newValue -> max_lightlevel = newValue)
+                .build());
+
+        general.addEntry(entryBuilder.startIntSlider(new TranslatableText("option.adaptivebrightness.min_lightlevel"), min_lightlevel, 0, 15)
+                .setDefaultValue(0)
+                .setTooltip(new TranslatableText("option.adaptivebrightness.min_lightlevel.tooltip"))
+                .setSaveConsumer(newValue -> min_lightlevel = newValue)
+                .build());
+
         builder.setSavingRunnable(() -> {
             FileWriter fileWriter;
             try {
@@ -55,6 +69,8 @@ public class Config {
             printWriter.printf("max %f\n", max_gamma);
             printWriter.printf("min %f\n", min_gamma);
             printWriter.printf("disabled %b\n", disabled);
+            printWriter.printf("maxlight %d\n", max_lightlevel);
+            printWriter.printf("minlight %d\n", min_lightlevel);
             printWriter.close();
         });
 
@@ -80,12 +96,17 @@ public class Config {
                 min_gamma = Double.parseDouble(line.split("min ")[1]);
             } else if (line.startsWith("disable ")) {
                 disabled = Boolean.parseBoolean(line.split("disable ")[1]);
+            } else if (line.startsWith("maxlight ")) {
+                max_lightlevel = Integer.parseInt(line.split("maxlight ")[1]);
+            } else if (line.startsWith("minlight ")) {
+                min_lightlevel = Integer.parseInt(line.split("minlight ")[1]);
             }
         }
         System.out.println(max_gamma);
         System.out.println(min_gamma);
         System.out.println(disabled);
-
+        System.out.println(max_lightlevel);
+        System.out.println(min_lightlevel);
     }
 
 }
