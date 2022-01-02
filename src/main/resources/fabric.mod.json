@@ -2,10 +2,11 @@
   "schemaVersion": 1,
   "id": "adaptivebrightness",
   "version": "1.0.3",
-  "name": "Adaptive Brightness",
+  "name": "Adaptive Brightness (FADHsquared fork)",
   "description": "A simple mod that changes your brightness according to the light level",
   "authors": [
-    "cominixo"
+    "cominixo",
+    "FADHsquared"
   ],
   "contact": {},
   "license": "LGPL-3.0",
