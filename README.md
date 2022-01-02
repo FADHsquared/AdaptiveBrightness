@@ -1,6 +1,11 @@
 # AdaptiveBrightness
 
-This fork just allows brightness adjustments of above 100%. Original readme contents below.
+This fork just allows brightness adjustments of above 100%.
+
+## Misc. plans
+- [ ] Add slider to adjust smoothness
+
+Original readme contents below.
 
 ---
 
