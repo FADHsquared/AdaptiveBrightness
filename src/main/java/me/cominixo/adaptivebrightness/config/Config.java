@@ -27,13 +27,13 @@ public class Config {
         int min_gamma_percent = (int)(min_gamma*100);
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
-        general.addEntry(entryBuilder.startIntSlider(new TranslatableText("option.adaptivebrightness.max_gamma"), max_gamma_percent, 0, 1000)
+        general.addEntry(entryBuilder.startIntField(new TranslatableText("option.adaptivebrightness.max_gamma"), max_gamma_percent)
                 .setDefaultValue(100)
                 .setTooltip(new TranslatableText("option.adaptivebrightness.max_gamma.tooltip"))
                 .setSaveConsumer(newValue -> max_gamma = newValue/100.0)
                 .build());
 
-        general.addEntry(entryBuilder.startIntSlider(new TranslatableText("option.adaptivebrightness.min_gamma"), min_gamma_percent, 0, 1000)
+        general.addEntry(entryBuilder.startIntField(new TranslatableText("option.adaptivebrightness.min_gamma"), min_gamma_percent)
                 .setDefaultValue(0)
                 .setTooltip(new TranslatableText("option.adaptivebrightness.min_gamma.tooltip"))
                 .setSaveConsumer(newValue -> min_gamma = newValue/100.0)
