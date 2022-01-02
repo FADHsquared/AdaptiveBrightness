@@ -6,5 +6,9 @@
   "option.adaptivebrightness.min_gamma": "Minimum Brightness",
   "option.adaptivebrightness.min_gamma.tooltip": "The minimum brightness value the mod will set",
   "option.adaptivebrightness.disabled": "Disabled",
-  "option.adaptivebrightness.disabled.tooltip": "Disables the mod and makes brightness fixed again"
+  "option.adaptivebrightness.disabled.tooltip": "Disables the mod and makes brightness fixed again",
+  "option.adaptivebrightness.max_lightlevel": "Maximum Adaptive Light Level",
+  "option.adaptivebrightness.max_lightlevel.tooltip": "The brightness will reach its maximum value at this light level",
+  "option.adaptivebrightness.min_lightlevel": "Minimum Adaptive Light Level",
+  "option.adaptivebrightness.min_lightlevel.tooltip": "The brightness will reach its minimum value at this light level"
 }
